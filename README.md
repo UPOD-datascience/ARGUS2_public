@@ -1,4 +1,5 @@
 # ARGUS2
+[![DOI](https://zenodo.org/badge/1373156526.svg)](https://doi.org/10.5281/zenodo.23686805)
 
 ARGUS2 is a clinical decision support tool wich estimates whether coronary artery disease (CAD) can be safely excluded in patients who present at cardiology with CAD related symptoms, Patients with an estimated risk below 15% are classified as low risk, for whom further diagnostic testing is not indicated. Separate calibrated XGBoost models are used for women and men.
 
