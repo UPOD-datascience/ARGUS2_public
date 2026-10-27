@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: ARGUS2
+version: v1.0.0
+doi: 10.5281/zenodo.23686806
+date-released: 2026-10-27
+authors:
+  - family-names: Spijkerboer
+    given-names: Feline
+  - family-names: van Es
+    given-names: Bram
