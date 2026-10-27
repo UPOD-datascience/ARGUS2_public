@@ -6,7 +6,7 @@ This folder holds the data analysis scripts used for the evaluation of the ARGUS
 |---|---|
 | [1_Analyse_log_data.ipynb](1_Analyse_log_data.ipynb) | Analyse the technical performance during inference (patient flow, errors, latency). Plots latency per module (absolute and normalized).
 | [2_Add_labels_to_silent_trial_data.ipynb](2_Add_labels_to_silent_trial_data.ipynb) | Determines the true label per row and stores the results in `../data/df_labels_final_<date>_info.parquet` |
-| [3_Performance_assesment_silent_trial.ipynb](3_Performance_assesment_silent_trial.ipynb) | Analyses how well the model performed (discriminative performance and calibration), and includes the failure analysis. (Table 1, metrics tables, Fig. 9–10)
+| [3_Performance_assesment_silent_trial.ipynb](3_Performance_assesment_silent_trial.ipynb) | Analyses how well the model performed (discriminative performance and calibration), and includes the failure analysis. (Table 1, metrics tables)
 
 Shared database helpers are in [functions/analysis_functions.py](functions/analysis_functions.py). Generated tables and figures go to [output/](output/).
 
@@ -23,8 +23,8 @@ Input: `logging.parquet` (software logs from the silent trial).
 | Number of patients during preprocessing | Uses regex on the log messages to count patients at each step: initial selection, age filter, CAD-related complaints, and lab, ECG, BMI and blood-pressure availability. Also counts by sex, flags runs with errors and measures the downtime caused by errors |
 | Duplicates within runs | Explains why availability is reported as percentages: consecutive runs overlap by one day |
 | Latency analysis | Splits runtime per run into ETL/ECG, measurements, preprocessing and prediction. Includes a check on the high latency between 23 Jan and 7 Feb |
-| Latency figures | Boxplots of latency per module, raw and normalised (Fig. 4a/4b) |
-| Latency vs batch size | Batch-level latency against batch size for the preprocessing modules (Fig. 5) and the patient-selection modules (Fig. 6) |
+| Latency figures | Boxplots of latency per module, raw and normalised (Figure 3) |
+| Latency vs batch size | Batch-level latency against batch size for the preprocessing modules and the patient-selection modules |
 
 ## 2. Outcome labelling – `2_Add_labels_to_silent_trial_data.ipynb`
 
@@ -58,6 +58,6 @@ Input: the labelled dataset from notebook 2, plus the calibrated XGBoost models 
 | Calibration | LOESS-smoothed calibration curves with bootstrap confidence intervals | 
 | Discrimination | AUC and ROC curves. Sensitivity, specificity, PPV, NPV and F1, with bootstrap and Wilson confidence intervals | 
 | Failure analysis | Compares missingness and predictor values between false negatives and true positives, and between false positives and true negatives | 
-| Compare data availability with development set | Compares the label distribution and missingness of the silent trial with the train and test sets, using omnibus and post-hoc tests | 
-| Compare values across all datasets | Tests whether predictor values differ between train, test and silent-trial data | 
+| Compare data availability with development set | Compares the label distribution and missingness of the silent trial with the development set used for retraining | 
+| Compare values across all datasets | Tests whether predictor values differ between the development set and silent-trial data | 
 | Test feature importance | Permutation importance on the silent-trial data, per sex | 
