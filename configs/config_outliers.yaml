@@ -1,0 +1,29 @@
+# config_outliers.yaml
+# Configuration file for outlier detection in medical measurements
+
+# Define acceptable ranges for measurements
+OUTLIER_RANGES:
+  Lengte:  # Height in cm
+    min: 120
+    max: 230
+    extra_log_columns: ["Gewicht", "Age"]
+    
+  Gewicht:  # Weight in kg
+    min: 35
+    max: 220
+    extra_log_columns: ["Lengte", "Age"]
+    
+  SystolicBP:  # Systolic blood pressure in mmHg
+    min: 60
+    max: 250
+    extra_log_columns: ["DiastolicBP", "MeanBP", "Age"]
+    
+  DiastolicBP:  # Diastolic blood pressure in mmHg
+    min: 30
+    max: 150
+    extra_log_columns: ["SystolicBP", "MeanBP", "Age"]
+    
+  MeanBP:  # Mean blood pressure in mmHg
+    min: 40
+    max: 180
+    extra_log_columns: ["SystolicBP", "DiastolicBP", "Age"]

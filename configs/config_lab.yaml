@@ -1,0 +1,78 @@
+# Version-Specific Configurations
+versions:
+  v2_ARGUS25:
+    modes:
+      train:      
+        # ETL parameters
+        etl:
+          # Lab columns
+          columns:
+            lab_code: 'code_code_original'
+            lab_variable: 'code_display_original'
+            lab_variable_description: 'code2_display_original'
+            lab_value: 'valueQuantity_value'  
+            lab_value_unit: 'valueQuantity_unit' 
+            lab_test_date: 'afname_dt'
+            value_string: 'valueString' 
+      
+      inference: 
+        # Inference mode - database loading
+        data_source:
+          source_type: "database"
+        
+        # Database configuration for inference
+        database:
+          host: "dataplatform-daily"
+          database: "SELF_SERVICE"
+          schema: "argus"
+
+        # ETL parameters #
+        etl:
+          # Lab columns
+          columns:
+            lab_code: 'code_code_original'
+            lab_variable: 'code_display_original'
+            lab_variable_description: 'code2_display_original'
+            lab_value: 'valueQuantity_value'  
+            lab_value_unit: 'valueQuantity_code_original'  
+            lab_test_date: 'afname_dt'
+            value_string: 'valueString' 
+ 
+
+# ETL parameters
+etl:
+  # Lab columns
+  columns:
+    lab_code: 'code_code_original'
+    lab_variable: 'code_display_original'
+    lab_variable_description: 'code2_display_original'
+    lab_value: 'valueQuantity_value'  
+    lab_value_unit: 'valueQuantity_unit' 
+    lab_test_date: 'afname_dt'
+    value_string: 'valueString' 
+
+  # Lab parameters
+  lab:
+    days_prior: 90
+    days_after: 1 
+    alpha: 0.1
+    lab_code_list: ['CS000187', 'CS002396', 'CS000001', 'CS000168', 'CS000165',
+       'CS000013', 'CS000009', 'CS000002', 'UMC03701', 'UMC05519',
+       'UMC05513', 'UMC05525', 'CS002409', 'CS000184', 'CS000208',
+       'CS000205', 'CS000227', 'CS000243', 'CS000211', 'CS000231',
+       'CS000239', 'CS000214', 'CS000203', 'CS000277', 'UMC07400',
+       'CS000015', 'UMC01217', 'UMC05397', 'UMC03653', 'UMC05687',
+       'CS000269', 'CS000301', 'CS000197', 'CS000217', 'UMC07397',
+       'UMC03063']
+       
+    lab_features: ["ALAT", "ASAT", "CRP", "Cholesterol",  "GGT", "Glucose",
+                    "HDL Cholesterol", "LDL Cholesterol", "LD", "Hemoglobine",
+                    "Kalium", "Kreatinine", "Leucocyten", "MCHC", "MCH", "MCV",
+                    "Natrium", "TSH", "Triglyceriden", "Trombocyten", "eGFR (CKD-EPI)"]
+                    
+
+  # Logging configurations
+  logging:
+    name: "ETL_lab_log"
+    file: "ETL__lab_log.log"
+    enabled: true

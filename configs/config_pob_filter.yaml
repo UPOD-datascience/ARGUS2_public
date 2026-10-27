@@ -1,0 +1,76 @@
+clinlp_patterns:
+  positive_phrases:
+    pijn borst:
+      fuzzy: 2
+      pos: 3
+    POB:
+      fuzzy: 0
+      pos: 0
+      case: True
+    krampend gevoel:
+      fuzzy: 0
+      pos: 1
+    krampende pijn:
+      fuzzy: 0
+      pos: 1
+    thoracale pijn:
+      fuzzy: 2
+      pos: 2
+    sternale pijn:
+      fuzzy: 2
+      pos: 2
+    benauwend gevoel:
+      fuzzy: 2
+      pos: 2
+    beklemmend gevoel:
+      fuzzy: 2
+      pos: 2
+    drukkend gevoel:
+      fuzzy: 1
+      pos: 1
+    knijpend gevoel:
+      fuzzy: 2
+      pos: 2
+    hartkramp:
+      fuzzy: 2
+      pos: 0
+    dyspnoe:
+      fuzzy: 1
+      pos: 0
+    inspanningsgebonden dyspnoe:
+      fuzzy: 3
+      pos: 2
+    angina pectoris:
+      fuzzy: 2
+      pos: 0
+    duizeligheid:
+      fuzzy: 1
+      pos: 0   
+    verder nooit pijn de borst:
+      fuzzy: 2
+      pos: 0
+    verder nooit pob:
+      fuzzy: 2
+      pos: 0
+    verder nooit kramp:
+      fuzzy: 2
+      pos: 0
+    verder nooit krampend:
+      fuzzy: 2
+      pos: 0
+    verder nooit dyspnoe:
+      fuzzy: 2
+      pos: 0
+    verder nooit dyspnoe:
+      fuzzy: 2
+      pos: 0
+    verder nooit beklemmend:
+      fuzzy: 2
+      pos: 0
+  exclusion_phrases:
+    long consultatie:
+      fuzzy: 2
+      pos: 1
+regex_patterns:
+  positive_phrases:
+stopwords:

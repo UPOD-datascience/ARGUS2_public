@@ -1,0 +1,106 @@
+# PatselProcessor Configuration
+# File: configs/config_patsel_processor.yaml
+
+# Common Column Configuration (across all versions/modes)
+columns:
+  # Consult data specific columns
+  consult_id_col: "id"
+  section_text_col: "section_text"
+  section_title_col: "section_title_display_original"
+  
+  # Filter result columns
+  pob_indication_col: "POB_INDICATION"
+  vg_indication_col: "VG_INDICATION"
+
+  index_date_input_col: "Index_dt"
+
+# Filter Configuration (common across modes)
+filters:
+  pob_filter:
+    config_path: "pob_filter"
+    use_meta_qualifiers: true
+    use_transformers: true
+    iterative: true
+    batch_size: 512
+    n_jobs: 1 
+    
+  vg_filter:
+    config_path: "vg_filter"
+    use_meta_qualifiers: true
+    use_transformers: false
+    iterative: false
+
+# Filtering Logic (common)
+filtering_logic:
+  pob_positive_value: true
+  vg_negative_values: [false, null]
+  drop_duplicates: true
+
+# Logging Configuration
+logging:
+  log_processing_stats: true
+  log_filtering_funnel: true
+  log_file_operations: true
+  log_validation_details: true
+
+# Version-Specific Configurations
+versions:
+  v2_ARGUS25:
+    modes:
+      train:      
+        # File management for training
+        file_management:
+          save_intermediates: true
+          output_dir: "data/intermediates/train"
+          date_format: "%Y%m%d"
+          
+        decursus_encoding: "iso-8859-1"  # Add encoding
+
+        decursus_columns:
+          - "id"
+          - "section_text"
+          - "section_title_display_original"
+        
+        # Validation settings
+        validation:
+          validation_level: "strict"
+          min_patients_required: 1
+          min_total_records: 1
+      
+      inference: 
+        # Inference mode - database loading
+        data_source:
+          source_type: "database"
+        
+        # Database configuration for inference
+        database:
+          host: "dataplatform-daily"
+          database: "SELF_SERVICE"
+          schema: "argus"
+        
+        # Columns to select from database tables
+        patsel_columns:
+          - "patientPseuID"
+          - "gender"
+          - "Age"
+          - "Index_dt"
+        
+        decursus_columns:
+          - "patientPseuID"
+          - "ENR_AfspraakNr"
+          - "Index_dt"
+          - "id"
+          - "section_text"
+          - "section_title_display_original"
+        
+        # File management for inference
+        file_management:
+          save_intermediates: false
+          output_dir: "data/intermediates/inference"
+        
+        # Validation settings (more lenient for inference)
+        validation:
+          validation_level: "warning"
+          min_patients_required: 1
+          min_total_records: 1
+  

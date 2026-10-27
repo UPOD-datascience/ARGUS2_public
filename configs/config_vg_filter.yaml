@@ -1,0 +1,82 @@
+clinlp_patterns:
+  positive_phrases:
+    uitgebreide vg:
+      fuzzy: 2
+      pos: 1
+      case: false
+    uitgebreide voorgeschiedenis:
+      fuzzy: 2
+      pos: 1
+      case: false    
+    cardiologische voorgeschiedenis:
+      fuzzy: 2
+      pos: 1
+      case: false
+    cardiale voorgeschiedenis:
+      fuzzy: 2
+      pos: 1
+      case: false
+    cardiale vg:
+      fuzzy: 0
+      pos: 1
+      case: false
+    vasculaire voorgeschiedenis:
+      fuzzy: 2
+      pos: 1
+      case: false
+    vasculaire vg:
+      fuzzy: 1
+      pos: 1
+      case: false
+    cardiovasculaire voorgeschiedenis:
+      fuzzy: 2
+      pos: 1
+      case: false
+    cardiovasculaire vg:
+      fuzzy: 1
+      pos: 1
+      case: false
+  exclusion_phrases:
+    blanco cardiale voorgeschiedenis:
+      fuzzy: 0
+      pos: 0
+      case: false
+    blanco voorgeschiedenis:
+      fuzzy: 0
+      pos: 0
+      case: false
+    blanco vasculaire voorgeschiedenis:
+      fuzzy: 0
+      pos: 0
+      case: false
+    blanco cardiovasculaire voorgeschiedenis:
+      fuzzy: 0
+      pos: 0
+      case: false
+    cardiale voorgeschiedenis blanco:
+      fuzzy: 0
+      pos: 0
+      case: false
+    geen cardiale voorgeschiedenis:
+      fuzzy: 0
+      pos: 0
+      case: false
+    geen vasculaire voorgeschiedenis:
+      fuzzy: 0
+      pos: 0
+      case: false
+    geen cardiale vg:
+      fuzzy: 0
+      pos: 0
+      case: false
+    geen vasculaire vg:
+      fuzzy: 0
+      pos: 0
+      case: false
+    geen cardiovasculaire vg:
+      fuzzy: 0
+      pos: 0
+      case: false
+regex_patterns:
+  positive_phrases:
+stopwords:

@@ -1,0 +1,290 @@
+;seed;word;sim_1;sim_2
+0;perfusiedefect;perfusiedefect;100;100.0
+1;perfusiedefect;reperfusiedefect;93;87.5
+4;perfusiedefect;perfusedefect;96;92.85714285714286
+10;perfusiedefect;perfusiedeffect;97;93.33333333333333
+11;perfusiedefect;perfusiedefekt;93;92.85714285714286
+13;perfusiedefect;perfusiedefecten;93;87.5
+16;perfusiedefect;perfussiedefect;97;93.33333333333333
+18;perfusiedefect;perfusiedefectje;93;87.5
+19;perfusiedefect;perfusiedefectie;93;87.5
+22;perfusiedefect;persfusiedefect;97;93.33333333333333
+23;perfusiedefect;perfuciedefect;93;92.85714285714286
+25;perfusiedefect;perusiedefect;96;92.85714285714286
+29;deficientie;defcientie;95;90.9090909090909
+30;deficientie;defficientie;96;91.66666666666666
+31;deficientie;deficientie;100;100.0
+33;deficientie;defiicientie;96;91.66666666666666
+38;deficientie;deficienties;96;91.66666666666666
+40;deficientie;deficiëntie;91;90.9090909090909
+41;deficientie;deficiêntie;91;90.9090909090909
+46;insufficientie;insufficiêntie;93;92.85714285714286
+47;insufficientie;insufficientiue;97;93.33333333333333
+48;insufficientie;insufficientie;97;93.33333333333333
+56;insufficientie;insuffitientie;93;92.85714285714286
+60;insufficientie;insufficiëntie;93;92.85714285714286
+61;insufficientie;insifficientie;93;92.85714285714286
+63;insufficientie;insufficiente;96;92.85714285714286
+66;insufficientie;insufficienties;97;93.33333333333333
+67;insufficientie;insuffiecientie;97;93.33333333333333
+69;insufficientie;insuffcientie;96;92.85714285714286
+71;insufficientie;insufficientie;100;100.0
+73;insufficientie;insufficièntie;93;92.85714285714286
+76;insufficientie;insuffucientie;93;92.85714285714286
+78;insufficientie;insufficintie;96;92.85714285714286
+79;insufficientie;insufficietie;96;92.85714285714286
+82;insufficientie;insufficiéntie;93;92.85714285714286
+83;insufficientie;insufficuientie;97;93.33333333333333
+85;insufficientie;insufficientle;93;92.85714285714286
+86;insufficientie;insufficicentie;97;93.33333333333333
+98;insufficientie;insuficientie;96;92.85714285714286
+102;verkalking;verkaling;95;90.0
+103;verkalking;verkalking;100;100.0
+107;verkalking;vekalking;95;90.0
+109;verkalking;verkalring;90;90.0
+112;verkalking;verkalkling;95;90.9090909090909
+116;decompensatio;dcompensatio;96;92.3076923076923
+118;decompensatio;decompensario;92;92.3076923076923
+120;decompensatio;decompenssatio;96;92.85714285714286
+121;decompensatio;decopensatio;96;92.3076923076923
+123;decompensatio;deompensatio;96;92.3076923076923
+124;decompensatio;decomensatio;96;92.3076923076923
+129;decompensatio;recompensatio;92;92.3076923076923
+135;decompensatio;decompenstio;96;92.3076923076923
+136;decompensatio;	decompensatio;96;92.85714285714286
+139;decompensatio;decompenatio;96;92.3076923076923
+140;decompensatio;decompenasatio;96;92.85714285714286
+141;decompensatio;decompensatie;92;92.3076923076923
+144;decompensatio;decompesatio;96;92.3076923076923
+147;decompensatio;decompensatio;100;100.0
+148;ischemie;isachemie;94;88.88888888888889
+150;ischemie;eischemie;94;88.88888888888889
+151;ischemie;ischemie;100;100.0
+152;ischemie;ischemia;88;87.5
+153;ischemie;ischemi;93;87.5
+154;ischemie;ischemic;88;87.5
+155;ischemie;ishemie;93;87.5
+156;ischemie;iscxhemie;94;88.88888888888889
+157;ischemie;ischaemie;94;88.88888888888889
+158;ischemie;ischeamie;94;88.88888888888889
+159;ischemie;isschemie;94;88.88888888888889
+160;ischemie;ischemie>;94;88.88888888888889
+161;ischemie;iscahemie;94;88.88888888888889
+163;ischemie;ischemie;94;88.88888888888889
+164;ischemie;ischemien;94;88.88888888888889
+165;ischemie;ischmie;93;87.5
+166;ischemie;iischemie;94;88.88888888888889
+168;ischemie;iscemie;93;87.5
+170;ischemie;iscaemie;88;87.5
+172;ischemie;ischemie;94;88.88888888888889
+173;ischemie;ischamie;88;87.5
+174;ischemie;ischeme;93;87.5
+175;ischemie;ichemie;93;87.5
+176;ischemie;ischmemie;94;88.88888888888889
+178;ischemie;inschemie;94;88.88888888888889
+180;ischemie;schemie;93;87.5
+181;ischemie;ischemle;88;87.5
+184;stenose;stenosed;93;87.5
+185;stenose;stenose;93;87.5
+186;stenose;tstenose;93;87.5
+187;stenose;	stenose;93;87.5
+188;stenose;setenose;93;87.5
+189;stenose;stesnose;93;87.5
+190;stenose;%stenose;93;87.5
+191;stenose;stenose<;93;87.5
+192;stenose;estenose;93;87.5
+194;stenose;steniose;93;87.5
+202;stenose;stenosen;93;87.5
+207;stenose;stenosie;93;87.5
+208;stenose;stenose>;93;87.5
+209;stenose;stensose;93;87.5
+211;stenose;stenose;100;100.0
+214;stenose;stenoses;93;87.5
+217;stenosis;stenosis;100;100.0
+225;stenosis;stenosie;88;87.5
+226;stenosis;stenoses;88;87.5
+227;stenosis;stenosies;94;88.88888888888889
+234;vasculair;vasculaire;95;90.0
+235;vasculair;vascualair;95;90.0
+237;vasculair;vasculair;100;100.0
+245;vasculair;vasiculair;95;90.0
+249;vasculair;fasculair;89;88.88888888888889
+251;vasculair;vaculair;94;88.88888888888889
+252;vasculair;vascular;94;88.88888888888889
+257;vaatlijden;vaatlijden;100;100.0
+260;vaatlijden;vaatslijden;95;90.9090909090909
+262;vaatlijden;vaatlijde;95;90.0
+264;vaatlijden;vastlijden;90;90.0
+267;vaatlijden;vatlijden;95;90.0
+268;vaatlijden;aatlijden;95;90.0
+269;vaatlijden;vaattijden;90;90.0
+270;vaatlijden;vaalijden;95;90.0
+272;vaatlijden;vaatijden;95;90.0
+280;aortosclerose;aortosclerose;100;100.0
+285;aortosclerose;aortasclerose;92;92.3076923076923
+288;agatston;agatstons;94;88.88888888888889
+289;agatston;agastston;94;88.88888888888889
+290;agatston;agaston;93;87.5
+291;agatston;agatscon;88;87.5
+292;agatston;agatston;100;100.0
+293;agatston;agathston;94;88.88888888888889
+294;agatston;agatstson;94;88.88888888888889
+295;agatston;afgatston;94;88.88888888888889
+296;agatston;agatstone;94;88.88888888888889
+297;agatston;agarston;88;87.5
+298;agatston;agatson;93;87.5
+299;agatston;agtston;93;87.5
+300;agatston;agatstoni;94;88.88888888888889
+301;enhancement;enhanccement;96;91.66666666666666
+302;enhancement;enhancment;95;90.9090909090909
+303;enhancement;nhancement;95;90.9090909090909
+305;enhancement;enhancement;100;100.0
+306;enhancement;enhencement;91;90.9090909090909
+308;enhancement;enhancemen;95;90.9090909090909
+309;enhancement;enhamcement;91;90.9090909090909
+310;enhancement;enhacement;95;90.9090909090909
+311;enhancement;inhancement;91;90.9090909090909
+312;enhancement;enchancement;96;91.66666666666666
+313;enhancement;enhancemend;91;90.9090909090909
+314;enhancement;anhancement;91;90.9090909090909
+315;enhancement;enhandcement;96;91.66666666666666
+316;enhancement;enhancament;91;90.9090909090909
+317;enhancement;enhancemet;95;90.9090909090909
+323;atherosclerose;atheriosclerose;97;93.33333333333333
+324;atherosclerose;eatherosclerose;97;93.33333333333333
+326;atherosclerose;atherosclerose;100;100.0
+328;atherosclerose;atmerosclerose;93;92.85714285714286
+332;atherosclerose;artherosclerose;97;93.33333333333333
+333;atherosclerose;artheriosclerose;93;87.5
+334;atherosclerose;athersclerose;96;92.85714285714286
+336;atherosclerose;atheosclerose;96;92.85714285714286
+337;atherosclerose;atheroslerose;96;92.85714285714286
+341;atherosclerose;antherosclerose;97;93.33333333333333
+343;atherosclerose;atheroscerose;96;92.85714285714286
+345;atherosclerose;aterosclerose;96;92.85714285714286
+346;atherosclerose;	atherosclerose;97;93.33333333333333
+347;atherosclerose;athersosclerose;97;93.33333333333333
+351;dysfunctie;dysfnctie;95;90.0
+353;dysfunctie;dysfuctie;95;90.0
+354;dysfunctie;dyfunctie;95;90.0
+355;dysfunctie;dysfuncties;95;90.9090909090909
+357;dysfunctie;dysdunctie;90;90.0
+359;dysfunctie;dysfunctioe;95;90.9090909090909
+363;dysfunctie;disfunctie;90;90.0
+364;dysfunctie;dysfynctie;90;90.0
+368;dysfunctie;dysfunktie;90;90.0
+371;dysfunctie;ysfunctie;95;90.0
+372;dysfunctie;dysfunctie;100;100.0
+373;dysfunctie;dysfuncte;95;90.0
+375;plaquevorming;plaqyevorming;92;92.3076923076923
+377;plaquevorming;	plaquevorming;96;92.85714285714286
+378;plaquevorming;plaquevorming;100;100.0
+379;plaquevorming;plaquesvorming;96;92.85714285714286
+381;plaquevorming;plaquevormig;96;92.3076923076923
+390;calcificaties;calciicaties;96;92.3076923076923
+394;calcificaties;calcivicaties;92;92.3076923076923
+403;calcificaties;cafcificaties;92;92.3076923076923
+405;calcificaties;calcificatie;96;92.3076923076923
+406;calcificaties;calcificaties;100;100.0
+409;arteriosclerose;arteriosclerose;100;100.0
+410;arteriosclerose;arterosclerose;97;93.33333333333333
+417;arteriosclerose;artheriosclerose;97;93.75
+426;coronairsclerose;cornairsclerose;97;93.75
+427;coronairsclerose;coroairsclerose;97;93.75
+428;coronairsclerose;coroniarsclerose;94;87.5
+429;coronairsclerose;coronaissclerose;94;93.75
+430;aankleuring;aankleurings;96;91.66666666666666
+432;aankleuring;aankleuring;100;100.0
+439;scintigrafie;scinitigrafie;96;92.3076923076923
+440;scintigrafie;scintigrafien;96;92.3076923076923
+442;scintigrafie;cintigrafie;96;91.66666666666666
+443;scintigrafie;scintigrafie;100;100.0
+444;scintigrafie;scintiegrafie;96;92.3076923076923
+445;scintigrafie;scintografie;92;91.66666666666666
+446;scintigrafie;szintigrafie;92;91.66666666666666
+449;scintigrafie;scintigirafie;96;92.3076923076923
+456;pathologie;patholgie;95;90.0
+457;pathologie;pathologie;95;90.9090909090909
+459;pathologie;patologie;95;90.0
+460;pathologie;pathologie;100;100.0
+461;pathologie;pathologise;95;90.9090909090909
+462;pathologie;pahologie;95;90.0
+17;perfusiedefect; perfusiedeffect;93;87.5
+18;perfusiedefect; perfusiedefect;97;93.33333333333333
+22;perfusiedefect;e perfusiedefect;93;87.5
+28;perfusiedefect;perfusiedefect t;93;87.5
+52;perfusiedefect;persfusiedefect ;93;87.5
+54;perfusiedefect;perfusie defect;97;93.33333333333333
+59;perfusiedefect;perfusiedefect ;97;93.33333333333333
+62;perfusiedefect; perfussiedefect;93;87.5
+72;perfusiedefect; persfusiedefect;93;87.5
+114;deficientie; deficientie;96;91.66666666666666
+123;deficientie;deficientie ;96;91.66666666666666
+134;insufficientie;insufficientie o;93;87.5
+137;insufficientie; insufficuientie;93;87.5
+143;insufficientie;e insufficientie;93;87.5
+155;insufficientie;insufficientie ;93;87.5
+171;insufficientie;insufficientie ;93;87.5
+190;insufficientie;insufficientie ;97;93.33333333333333
+205;insufficientie; insufficientiue;93;87.5
+223;insufficientie; insuffiecientie;93;87.5
+257;insufficientie;insuffiecientie ;93;87.5
+269;insufficientie; insufficientie;97;93.33333333333333
+276;insufficientie; insufficienties;93;87.5
+277;insufficientie;insufficienties ;93;87.5
+292;verkalking; verkalking;95;90.9090909090909
+305;verkalking;verkalking ;95;90.9090909090909
+353;decompensatio; decompensatio;96;92.85714285714286
+369;decompensatio;decompensatio ;96;92.85714285714286
+405;ischemie;ischemie ;94;88.88888888888889
+432;ischemie; schemie;88;87.5
+433;ischemie; ischemie;94;88.88888888888889
+439;ischemie;ischemi ;88;87.5
+469;stenose; stenose;93;87.5
+478;stenose;stenose ;93;87.5
+504;stenosis; stenosis;94;88.88888888888889
+505;stenosis;stenos is;94;88.88888888888889
+506;stenosis;stenosis ;94;88.88888888888889
+510;vasculair;vasculair ;95;90.0
+516;vasculair; vasculair;95;90.0
+525;vaatlijden; vaatlijden;95;90.9090909090909
+530;vaatlijden;vaatlijden ;95;90.9090909090909
+539;vaatlijden;vaat lijden;95;90.9090909090909
+572;aortosclerose;aortosclerose ;96;92.85714285714286
+578;agatston;agatston ;94;88.88888888888889
+580;agatston; agatston;94;88.88888888888889
+607;enhancement;enhancement ;96;91.66666666666666
+612;enhancement; nhancement;91;90.9090909090909
+628;enhancement;enhancemen ;91;90.9090909090909
+629;enhancement; enhancement;96;91.66666666666666
+639;atherosclerose;antherosclerose;93;87.5
+647;atherosclerose;atheriosclerose;93;87.5
+690;atherosclerose;artherosclerose ;93;87.5
+713;atherosclerose;athero sclerose;97;93.33333333333333
+725;atherosclerose; eatherosclerose;93;87.5
+771;dysfunctie;dys functie;95;90.9090909090909
+781;dysfunctie;dysfunctie ;95;90.9090909090909
+782;dysfunctie;dysfunktie ;95;90.9090909090909
+805;plaquevorming; plaquevorming;96;92.85714285714286
+811;plaquevorming;plaquevorming ;96;92.85714285714286
+828;plaquevorming;plaque vorming;96;92.85714285714286
+865;calcificaties;calcificatie ;92;92.3076923076923
+922;calcificaties; calcificaties;96;92.85714285714286
+927;calcificaties;calcificaties ;96;92.85714285714286
+938;arteriosclerose;arteriosclerose ;97;93.75
+959;arteriosclerose;artheriosclerose ;94;88.23529411764706
+963;coronairsclerose;coronaissclerose ;91;88.23529411764706
+964;coronairsclerose;coroairsclerose ;94;87.5
+967;coronairsclerose;coronai sclerose;94;93.75
+978;aankleuring;aan kleuring;96;91.66666666666666
+990;aankleuring;aankleuring ;96;91.66666666666666
+995;aankleuring; aankleuring;96;91.66666666666666
+1007;scintigrafie; cintigrafie;92;91.66666666666666
+1019;scintigrafie; scintigrafie;96;92.3076923076923
+1036;scintigrafie;scintigrafie ;96;92.3076923076923
+1041;pathologie;pathologie ;95;90.9090909090909
+1043;pathologie; pathologie;95;90.9090909090909
+5;perfusiedefect;perfusie defect;93;87.5
+103;insufficientie;insufficientie;93;87.5
+388;atherosclerose;athero  sclerose;93;87.5
+604;coronairsclerose;coronai sclerose ;91;88.23529411764706

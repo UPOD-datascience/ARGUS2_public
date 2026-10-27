@@ -1,0 +1,73 @@
+
+# Column configurations
+versions:
+
+  v1_ARGUS24:
+    # Metingen columns
+    columns:
+      meting_code: 'code_code_original'
+      meting_variable: 'code_display_original'
+      meting_variable_description: 'code_display2_original'
+      meting_value: 'valueQuantity_value'
+      meting_value_unit: 'valueQuantity_unit'
+      meting_test_date: 'effectiveDateTime'
+      meting_gewicht: 'Gewicht'
+      meting_lengte: 'Lengte'
+      meting_bmi: 'BMI'
+      meting_bp_dia: 'DiastolicBP'
+      meting_bp_syst: 'SystolicBP'
+      meting_bp_mean: 'MeanBP'
+      meting_bp_method: 'code_display_original'
+
+  v2_ARGUS25: 
+    modes:
+        train:
+          # Metingen columns
+          columns:
+            meting_code: 'CODE_CODE_ORIGINAL'
+            meting_variable_description: 'CODE_DISPLAY_ORIGINAL'
+            meting_value: 'valueQuantity_value'
+            meting_value_unit: 'VALUEQUANTITY_CODE'
+            meting_test_date: 'effectiveDateTime'
+            meting_gewicht: 'Gewicht'
+            meting_lengte: 'Lengte'
+            meting_bmi: 'BMI'
+            meting_bp_dia: 'DiastolicBP'
+            meting_bp_syst: 'SystolicBP'
+            meting_bp_mean: 'MeanBP'
+            meting_bp_method: 'CODE_DISPLAY_ORIGINAL'
+       
+
+        inference: 
+          # Inference mode - database loading
+          data_source:
+            source_type: "database"
+          
+          # Database configuration for inference
+          database:
+            host: "dataplatform-daily"
+            database: "SELF_SERVICE"
+            schema: "argus"
+
+          # Metingen columns
+          columns:
+            study_id: 'patientPseuID'
+            index_date: 'Index_dt'
+            meting_code: 'CODE_CODE_ORIGINAL'
+            meting_variable_description: 'CODE_DISPLAY_ORIGINAL'
+            meting_value: 'valueQuantity_value'
+            meting_value_unit: 'valueQuantity_code'
+            meting_test_date: 'effectiveDateTime'
+            meting_gewicht: 'Gewicht'
+            meting_lengte: 'Lengte'
+            meting_bmi: 'BMI'
+            meting_bp_dia: 'DiastolicBP'
+            meting_bp_syst: 'SystolicBP'
+            meting_bp_mean: 'MeanBP'
+            meting_bp_method: 'CODE_DISPLAY_ORIGINAL'
+
+
+# Value mappings
+metingen:
+  max_days: 180 
+  min_days: 1 

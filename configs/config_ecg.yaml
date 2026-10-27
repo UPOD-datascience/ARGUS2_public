@@ -1,0 +1,78 @@
+# Column configurations
+versions:
+
+  # Original ARGUS model
+  v1_ARGUS24:
+      columns_ecg:
+        acquisition_date: "AcquisitionDateTime"
+        bitflag: "BitFlag"
+        leadIdText: 'LeadIDText'
+        index_date: 'Indexdate'
+        ecgtestId: 'ECGTestID'
+        ecgdate: 'ecg_date'
+
+  # ARGUS2 - development and inference
+  v2_ARGUS25:
+    modes:
+      train:
+        columns_ecg:
+          acquisition_date: "AcquisitionDateTime"
+          bitflag: "BitFlag"
+          leadIdText: 'LeadIDText'
+          index_date: 'Index_dt'
+          ecgtestId: 'ECGTestID'
+          ecgdate: 'ecg_date'
+          InjClsInfarction: "InjClsInfarction"
+
+      inference: 
+        # Inference mode - database loading
+        data_source:
+          source_type: "database"
+        
+        # Database configuration for inference
+        database:
+          host: "dataplatform-daily"
+          database: "SELF_SERVICE"
+          schema: "argus"
+
+        columns_ecg:
+          study_id: "PatientPseuID"
+          acquisition_date: "AcquisitionDateTime"
+          bitflag: "BitFlag"
+          leadIdText: 'LeadIDText'
+          index_date: 'Index_dt'
+          ecgtestId: 'ECGTestID'
+          ecgdate: 'ecg_date'
+          InjClsInfarction: "InjClsInfarction"
+        
+# ETL parameters
+etl:
+  # ECG parameters
+  ecg:
+    days_prior: 120
+    days_after: 1 #30
+    varying_vars: ["MinST", "STM", "STJ", "MaxST", "STE", 
+                "Q_PeakAmpl", "Q_Area", "Q_Duration", "QRS_Area",
+                "T_PeakAmpl", "T_Area", "T_Special",
+                "QRS_Balance", "QRS_Deflection", "Max_R_Ampl", "Max_S_Ampl",
+                "QRSint", "T_End"]
+    replace_zeros_with_nan: True
+    
+    lead_regions: {
+            "II": "Inferior", "III": "Inferior", "aVF": "Inferior",
+            "V1": "Anterior", "V2": "Anterior", "V3": "Anterior", "V4": "Anterior",
+            "V5": "Lateral", "V6": "Lateral", "I": "Lateral", "aVL": "Lateral"
+        }
+
+  # Logging configurations
+  logging:
+    name: "ETL_ecg_log"
+    file: "ETL_ecg_log.log"
+    enabled: true
+
+# Parameters for merging process
+merge:
+  logging:
+    name: "merge_ecg_log"
+    file: "merge_ecg_log.log"
+    enabled: true

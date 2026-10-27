@@ -1,0 +1,695 @@
+# regex_patterns.yaml
+# Configuratiebestand met regex patronen voor cardiovasculaire risicofactoren
+
+# Algemene afkapwaarden voor risicofactoren
+THRESHOLDS:
+  # BMI thresholds
+  bmi_overweight: 25.0
+  bmi_obesity: 30.0
+  
+  # Blood pressure thresholds (mmHg)
+  bp_systolic: 140
+  bp_diastolic: 90
+  
+  # Cholesterol thresholds (mmol/L)
+  cholesterol_total: 5.0
+  cholesterol_ldl: 3.0
+  
+  # Glucose/diabetes thresholds
+  glucose: 7.0    # Fasting glucose (mmol/L)
+  hba1c: 6.5      # HbA1c percentage
+  
+  # Alcohol consumption thresholds
+  alcohol_day: 3   # Units per day
+  alcohol_week: 14 # Units per week
+
+# Algemene negatie termen (worden in meerdere extractiefuncties gebruikt)
+NEGATION_PATTERNS:
+  - "\\bniet\\b"
+  - "\\bgeen\\b"
+  - "\\bnooit\\b"
+  - "\\bontken"
+  - "\\bontkent\\b"
+  - "\\bafwez\\w+\\b"
+  - "\\bnormaal\\b"
+  - "\\bnormale\\b"
+  - "\\bnegatief\\b"
+
+# Algemene exclusie termen voor medicatiegebruik
+MEDICATION_EXCLUSION_PATTERNS:
+  - "gestopt"
+  - "allergie"
+  - "bijwerking"
+  - "intolerant"
+  - "verdraagt niet"
+  - "niet verdragen"
+  - "afbouw"
+  - "overwegen"
+  - "advies om te starten"
+  - "zou kunnen starten"
+  - "weigert"
+  - "geweigerd"
+
+# Roken
+SMOKING_PATTERNS:
+  clear_non_smoker:
+    - "roken\\s*:\\s*nee"
+    - "roken\\s*:\\s*niet"
+    - "roken\\s*:\\s*geen"
+    - "roken\\s*:\\s*gestopt"
+    - "roken\\s*:\\s*ex"
+    - "rookt\\s*:\\s*nee"
+    - "rookt\\s*:\\s*niet"
+    - "rookt\\s*:\\s*nooit"
+    - "nicotine\\s*:\\s*nee"
+    - "niet\\s+rok"
+    - "nooit\\s+gerok"
+    - "geen\\s+rok"
+    - "gestopt\\s+met\\s+rok"
+  clear_smoker:
+    - "roken\\s*:\\s*ja"
+    - "roken\\s*:\\s*(\\d+)"
+    - "rookt\\s*:\\s*ja"
+    - "rookt\\s*(\\d+)"
+    - "sigaretten\\s*per\\s*dag\\s*:\\s*(\\d+)"
+    - "pakjes\\s*per\\s*dag\\s*:\\s*(\\d+)"
+  smoking_terms:
+    - "rook"
+    - "rookt"
+    - "roken"
+    - "roker"
+    - "tabak"
+    - "sigaretten"
+    - "shag"
+    - "pijp"
+    - "nicotine"
+  smoking_negation:
+    - "niet"
+    - "geen"
+    - "nee"
+    - "nooit"
+    - "gestopt"
+    - "ex-"
+    - "ex "
+    - "voormalig"
+    - "voorheen"
+    - "vroeger"
+    - "in het verleden"
+  smoking_positive:
+    - "ja"
+    - "wel"
+    - "dagelijks"
+    - "per dag"
+    - "pakje"
+    - "pakjes"
+    - "sinds"
+    - "jaar"
+    - "pack"
+    - "shag"
+    - "pijp"
+
+# Hypertensie
+HYPERTENSION_PATTERNS:
+  hypertension:
+    - "hypertensie\\b"
+    - "hoge\\s+bloeddruk"
+    - "verhoogde\\s+bloeddruk"
+    - "tensie\\s*verhoogd"
+    - "bloeddruk\\s*verhoogd"
+    - "bloeddruk\\s*te\\s*hoog"
+    - "hypertensief"
+    - "hypertens\\w+"  # Vangt hypertensieve, hypertensie, etc.
+    - "RR\\s*[><≥≤:=\\s]*\\s*(?:1[4-9]\\d|[2-9]\\d{2})[\\/\\s]"  # RR > 140/...
+    - "bloeddruk\\s*[><≥≤:=\\s]*\\s*(?:1[4-9]\\d|[2-9]\\d{2})[\\/\\s]"  # bloeddruk > 140/...
+    - "systolisch\\s*[><≥≤:=\\s]*\\s*(?:1[4-9]\\d|[2-9]\\d{2})"  # systolisch > 140
+    - "diastolisch\\s*[><≥≤:=\\s]*\\s*(?:[9][0-9]|1\\d{2})"  # diastolisch > 90
+  hypertension_meds:
+    - "ace.?remmer"
+    - "ace.?inhibitor"
+    - "enalapril"
+    - "lisinopril"
+    - "perindopril"
+    - "ramipril"
+    - "captopril"
+    - "fosinopril"
+    - "quinapril"
+    - "cilazapril"
+    - "trandolapril"
+    - "spirapril"
+    - "sartan"
+    - "valsartan"
+    - "losartan"
+    - "candesartan"
+    - "irbesartan"
+    - "telmisartan"
+    - "olmesartan"
+    - "eprosartan"
+    - "azilsartan"
+    - "diureticum"
+    - "diuretisch"
+    - "diuretica"
+    - "hydrochloorthiazide"
+    - "hctz"
+    - "chloortalidon"
+    - "indapamide"
+    - "bumetanide"
+    - "furosemide"
+    - "lasix"
+    - "spironolacton"
+    - "eplerenon"
+    - "beta.?blokker"
+    - "bètablokker"
+    - "betablocker"
+    - "metoprolol"
+    - "atenolol"
+    - "bisoprolol"
+    - "carvedilol"
+    - "nebivolol"
+    - "propranolol"
+    - "labetalol"
+    - "sotalol"
+    - "calciumantagonist"
+    - "calcium.?blokker"
+    - "amlodipine"
+    - "nifedipine"
+    - "felodipine"
+    - "lercanidipine"
+    - "barnidipine"
+    - "verapamil"
+    - "diltiazem"
+    - "doxazosine"
+    - "moxonidine"
+    - "clonidine"
+    - "hydralazine"
+    - "minoxidil"
+  bp_patterns:
+    # Formaat "120/80"
+    - "(?:RR|BD|bloeddruk|tensie)\\s*:?\\s*(\\d{2,3})\\s*[\\/]\\s*(\\d{2,3})"
+    # Formaat "systolisch 120, diastolisch 80"
+    - "systolisch\\s*:?\\s*(\\d{2,3})[\\s,]+diastolisch\\s*:?\\s*(\\d{2,3})"
+  other_indications:
+    - "hartfalen"
+    - "aritmie"
+    - "oedeem"
+    - "angina"
+    - "coronair"
+    - "infarct"
+    - "cvd"
+    - "beroerte"
+    - "hartritmestoornis"
+    - "nierfalen"
+    - "gestopt"
+  non_hypertension:
+    - "geen\\s+hypertensie"
+    - "geen\\s+hoge\\s+bloeddruk"
+    - "normale\\s+bloeddruk"
+    - "normotensief"
+    - "bloeddruk\\s+normaal"
+    - "tensie\\s+normaal"
+  hypertension_terms:
+    - "bloeddruk"
+    - "tensie"
+    - "RR"
+    - "hypertens"
+
+# Hypercholesterolemie
+HYPERCHOLESTEROLEMIA_PATTERNS:
+  hypercholesterolemia:
+    - "hypercholesterolemie\\b"
+    - "hypercholesterol\\w+"
+    - "hyperlipidemie\\b"
+    - "hyperlipidem\\w+"
+    - "verhoogd\\w*\\s+cholesterol"
+    - "verhoogd\\w*\\s+lipiden"
+    - "hoog\\s+cholesterol"
+    - "cholesterol\\s*verhoogd"
+    - "cholesterol\\s*te\\s*hoog"
+    - "dyslipidemie\\b"
+    - "dyslipidem\\w+"
+    - "cholesterol\\s*[><≥≤:=\\s]*\\s*(?:[5-9][.,]\\d|\\d{2,}[.,]\\d|\\d{2,})\\s*mmol"  # cholesterol > 5,0 mmol/L
+    - "ldl\\s*[><≥≤:=\\s]*\\s*(?:[3-9][.,]\\d|\\d{2,}[.,]\\d|\\d{2,})\\s*mmol"  # LDL > 3,0 mmol/L
+    - "totaal\\s*cholesterol\\s*[><≥≤:=\\s]*\\s*(?:[5-9][.,]\\d|\\d{2,}[.,]\\d|\\d{2,})"  # totaal cholesterol > 5,0
+  mild_statins:
+    - "simvastatine"
+    - "zocor"
+  potent_statins:
+    - "atorvastatine"
+    - "lipitor"
+    - "rosuvastatine"
+    - "crestor"
+  additional_meds:
+    - "ezetimibe"
+    - "ezetrol"
+    - "inegy"
+  other_cholesterol_meds:
+    - "statine"
+    - "pravastatine"
+    - "fluvastatine"
+    - "lovastatine"
+    - "PCSK9.?remm\\w*"
+    - "evolocumab"
+    - "alirocumab"
+    - "repatha"
+    - "praluent"
+    - "cholesterolverlagers"
+    - "cholesterolsyntheseremm\\w*"
+    - "fibraten"
+    - "gemfibrozil"
+    - "fenofibraat"
+    - "nicotinezuur"
+    - "galzuurbinders"
+    - "colestyramine"
+    - "colesevelam"
+    - "questran"
+    - "cholestagel"
+    - "icosapent"
+  cholesterol_patterns:
+    # Formaat "cholesterol: 6,2 mmol/l"
+    - "(?:totaal\\s*)?cholesterol\\s*:?\\s*(\\d+[.,]\\d+)\\s*(?:mmol|mg)"
+    # Formaat "LDL: 4,1 mmol/l"
+    - "ldl(?:\\s*-?cholesterol)?\\s*:?\\s*(\\d+[.,]\\d+)\\s*(?:mmol|mg)"
+    # Formaat "cholesterolgehalte: 7,3"
+    - "cholesterolgehalte\\s*:?\\s*(\\d+[.,]\\d+)"
+  non_hypercholesterolemia:
+    - "geen\\s+hypercholesterolemie"
+    - "geen\\s+verhoogd\\s+cholesterol"
+    - "normaal\\s+cholesterol"
+    - "cholesterol\\s+normaal"
+    - "normale\\s+cholesterolwaarden"
+    - "lipidenprofiel\\s+normaal"
+  cholesterol_terms:
+    - "cholesterol"
+    - "lipiden"
+    - "dyslipidemie"
+    - "ldl"
+    - "hdl"
+    - "triglycerid"
+
+# Diabetes
+DIABETES_PATTERNS:
+  diabetes:
+    - "diabet\\w+"  # diabetes, diabetisch, etc.
+    - "dm\\s*(?:type)?\\s*[12]"  # DM type 1, DM type 2, DM1, DM2
+    - "dm\\s*[12]"  # DM1, DM2
+    - "diabetes\\s*mellitus"
+    - "diabetes\\s*type\\s*[12]"
+    - "t[12]dm"  # T1DM, T2DM
+    - "suikerziekte"
+    - "glucose\\s*intolerantie"
+    - "hyperglycemi\\w+"
+    - "hba1c\\s*[><≥≤:=\\s]*\\s*(?:[6-9][.,]\\d|\\d{2,}[.,]\\d|\\d{2,})"  # HbA1c > 6,0%
+    - "nuchtere\\s*glucose\\s*[><≥≤:=\\s]*\\s*(?:[7-9][.,]\\d|\\d{2,}[.,]\\d|\\d{2,})"  # nuchter glucose > 7,0 mmol/L
+    - "iddm"  # Insulin-dependent diabetes mellitus
+    - "niddm"  # Non-insulin-dependent diabetes mellitus
+    - "mody"  # Maturity onset diabetes of the young
+    - "lada"  # Latent autoimmune diabetes in adults
+  diabetes_meds:
+    # Insulines
+    - "insuline"
+    - "novorapid"
+    - "humalog"
+    - "novomix"
+    - "lantus"
+    - "levemir"
+    - "tresiba"
+    - "toujeo"
+    - "fiasp"
+    - "apidra"
+    - "actrapid"
+    - "insulatard"
+    - "mixtard"
+    - "protaphane"
+    - "humuline"
+    - "abasaglar"
+    - "semglee"
+    # Orale antidiabetica
+    - "metformine"
+    - "glibenclamide"
+    - "gliclazide"
+    - "glimepiride"
+    - "tolbutamide"
+    - "acarbose"
+    - "pioglitazon"
+    - "dapagliflozine"
+    - "empagliflozine"
+    - "canagliflozine"
+    - "linagliptine"
+    - "saxagliptine"
+    - "sitagliptine"
+    - "vildagliptine"
+    - "semaglutide"
+    - "liraglutide"
+    - "dulaglutide"
+    - "exenatide"
+    - "lixisenatide"
+    - "repaglinide"
+    - "nateglinide"
+    # Medicatiegroepen
+    - "sglt-?2\\s*remm\\w*"
+    - "dpp-?4\\s*remm\\w*"
+    - "glp-?1\\s*agon\\w*"
+    - "sulfonylureum"
+    - "biguanide"
+    - "glitazon"
+    - "glinide"
+  glucose_patterns:
+    # Formaat "glucose: 8,2 mmol/l"
+    - "(?:nuchtere\\s*)?glucose\\s*:?\\s*(\\d+[.,]\\d+)\\s*(?:mmol|mg)"
+    # Formaat "HbA1c: 7,1%"
+    - "hba1c\\s*:?\\s*(\\d+[.,]\\d+)\\s*(?:%|mmol)"
+  non_diabetes:
+    - "geen\\s+diabetes"
+    - "geen\\s+dm"
+    - "normale\\s+glucose"
+    - "glucose\\s+normaal"
+    - "normale\\s+bloedsuiker"
+    - "bloedsuiker\\s+normaal"
+    # diabetes indicatie maar behorend tot een ander persoon
+    - "(?:vader|moeder|broer|zus|opa|oma|familie|partner|ouders?)\\s+(?:heeft|hebben|had)\\s+(?:diabet\\w*|dm\\s*(?:type)?\\s*[12])"
+    - "(?:diabet\\w*|dm\\s*(?:type)?\\s*[12])\\s+(?:in\\s+de\\s+)?familie"
+    - "familieanamnese.*(?:diabet\\w*|dm)"
+    - "(?:vader|moeder|broer|zus|opa|oma).*(?:diabet\\w*|dm).*patiënt.*(?:zelf\\s+)?(?:nog\\s+)?gezond"
+  diabetes_terms:
+    - "glucose"
+    - "bloedsuiker"
+    - "suiker"
+    - "hba1c"
+    - "dm"
+    - "diabetes"
+
+# Obesitas/overgewicht
+OBESITY_PATTERNS:
+  obesity:
+    - "obesitas"
+    - "obees"
+    - "morbide\\s+obees"
+    - "morbide\\s+obesitas"
+    - "overgewicht"
+    - "adipositas"
+    - "zwaarlijvig"
+    - "te\\s+zwaar"
+    - "verhoogd\\s+gewicht"
+    - "verhoogde\\s+bmi"
+    - "bmi\\s*[><≥≤:=\\s]*\\s*(?:25|[3-9][0-9])"  # BMI >= 25
+  bmi_pattern: "bmi\\s*:?\\s*(\\d+[.,]?\\d*)"
+  length_pattern: "lengte\\s*:?\\s*(\\d+[.,]?\\d*)\\s*(?:cm|m)"
+  weight_pattern: "gewicht\\s*:?\\s*(\\d+[.,]?\\d*)\\s*(?:kg)"
+  non_obesity:
+    - "geen\\s+obesitas"
+    - "geen\\s+overgewicht"
+    - "normaal\\s+gewicht"
+    - "gezond\\s+gewicht"
+  weight_terms:
+    - "gewicht"
+    - "bmi"
+    - "lichaamsgewicht"
+    - "lichaams\\s*massa"
+
+# Fysieke inactiviteit
+PHYSICAL_INACTIVITY_PATTERNS:
+  inactivity:
+    - "inactie\\w*"
+    - "inactiv\\w+"
+    - "sedentair"
+    - "sedentaire\\s+levensstijl"
+    - "lichamelijk\\s+inactief"
+    - "fysiek\\s+inactief"
+    - "beweegt\\s+(?:te\\s+)?weinig"
+    - "weinig\\s+beweg\\w+"
+    - "onvoldoende\\s+beweg\\w+"
+    - "geen\\s+lichaamsbeweging"
+    - "geen\\s+sport"
+    - "niet\\s+(?:actief|sportief)"
+    - "nauwelijks\\s+beweg\\w+"
+  activity:
+    - "(?:veel|voldoende|regelmatig|dagelijks)\\s+beweg\\w+"
+    - "actieve\\s+levensstijl"
+    - "fysiek\\s+actief"
+    - "lichamelijk\\s+actief"
+    - "sport\\s+(?:regelmatig|wekelijks|dagelijks)"
+    - "beweegt\\s+(?:regelmatig|voldoende|veel)"
+    - "(?:doet|beoefent)\\s+aan\\s+sport"
+    - "sportief"
+    - "goede\\s+conditie"
+    - "traint\\s+(?:regelmatig|wekelijks|dagelijks)"
+    - "wandelt\\s+(?:regelmatig|dagelijks)"
+    - "fiets\\w+\\s+(?:regelmatig|dagelijks|naar\\s+(?:werk|het\\s+werk))"
+  activity_terms:
+    - "beweg\\w+"
+    - "lichamelijk"
+    - "fysiek"
+    - "sport\\w*"
+    - "activ\\w+"
+    - "conditie"
+    - "training"
+    - "fitness"
+
+# Alcoholgebruik
+ALCOHOL_USE_PATTERNS:
+  risky_alcohol:
+    - "alcoholmisbruik"
+    - "alcoholabuse"
+    - "alcoholproblem\\w+"
+    - "alcoholisme"
+    - "alcoholver(?:slaving|slaafde)"
+    - "overmatig\\s+alcohol(?:gebruik|intake)"
+    - "teveel\\s+alcohol"
+    - "alcohol\\s+overcons(?:umptie|umerend)"
+    - "alcohola(?:buse|fhankelijk|fhankelijkheid)"
+    - "(?:chronisch|zwaar|veel)\\s+alc(?:ohol|ohol\\s+gebruik|\\s+gebruik)"
+    - "(?:riskant|problematisch)\\s+alc(?:ohol|ohol\\s+gebruik|\\s+gebruik)"
+    - "alc(?:ohol|ohol\\s+gebruik|\\s+gebruik)\\s+(?:probleem|problemen)"
+    - "alc(?:ohol|ohol\\s+gebruik|\\s+gebruik)\\s*:\\s*(?:overmatig|teveel|veel|probleem|problemen)"
+  alcohol_quantity:
+  # Pattern 1: Number + unit + beverage + time (e.g., "6 glazen wijn per dag")
+  - "(\\d+)\\s*(?:eenhe(?:id|den)|glazen|consumpties)\\s*(?:alcohol|wijn|bier)\\s*(?:per\\s*dag|p\\.?\\s*d\\.?|daags|dags)"
+  # Pattern 2: Number + unit + time (e.g., "4 glazen per dag") 
+  - "(\\d+)\\s*(?:eenhe(?:id|den)|glazen|consumpties)\\s*(?:per\\s*dag|p\\.?\\s*d\\.?|daags|dags)"
+  # Pattern 3: Number + unit + beverage + per week
+  - "(\\d+)\\s*(?:eenhe(?:id|den)|glazen|consumpties)\\s*(?:alcohol|wijn|bier)\\s*(?:per\\s*week|p\\.?\\s*w\\.?|wekelijks)"
+  # Pattern 4: Number + unit + per week
+  - "(\\d+)\\s*(?:eenhe(?:id|den)|glazen|consumpties)\\s*(?:per\\s*week|p\\.?\\s*w\\.?|wekelijks)"
+  non_risky_alcohol:
+    - "geen\\s+alcohol(?:gebruik|inname)"
+    - "drinkt\\s+niet"
+    - "gebruikt\\s+geen\\s+alcohol"
+    - "alcohol\\s*:\\s*(?:nee|geen|gestopt|niet|nooit|zelden)"
+    - "(?:matig|beperkt|sociaal|incidenteel|occasioneel)\\s+alcohol(?:gebruik|inname)"
+    - "(?:matig|beperkt|sociaal|incidenteel|occasioneel)\\s+alc\\w*\\s+gebruik"
+    - "alcohol\\s*:\\s*(?:matig|beperkt|sociaal|incidenteel|occasioneel)"
+  alcohol_terms:
+    - "alcohol"
+    - "drank"
+    - "drinkgedrag"
+    - "etoh"
+    - "wijn"
+    - "bier"
+    - "sterke\\s+drank"
+
+# Familiaire belasting
+FAMILY_HISTORY_CVD_PATTERNS:
+  family_terms:
+    - "famili\\w+"
+    - "eerstegraads"
+    - "eerste\\s*graads"
+    - "1e\\s*graads"
+    - "vader"
+    - "moeder"
+    - "ouder[s]?"
+    - "zus(?:ter|je)?"
+    - "broe[r]?"
+    - "kind(?:eren)?"
+    - "zoon"
+    - "dochter"
+    - "opa"
+    - "oma"
+    - "großvater"
+    - "großmutter"
+    - "heredit\\w+"
+    - "erfelijk"
+    - "belast"
+    - "belasting"
+    - "VG\\s+fam"
+    - "fam\\w*\\s+VG"
+    - "fam\\w*\\s+anamnese"
+    - "fam\\w*\\s+voorgeschiedenis"
+  cvd_terms:
+    - "hart\\w*"
+    - "cardi\\w+"
+    - "coronair"
+    - "myocard\\w+"
+    - "infarct"
+    - "CVA"
+    - "TIA"
+    - "beroerte"
+    - "cerebrovasculair\\w*"
+    - "vaatlijden"
+    - "vasculair"
+    - "vaatziekten"
+    - "aneurysm\\w+"
+    - "atheroscl\\w+"
+    - "atheromatose"
+    - "arterioscl\\w+"
+    - "perifeer\\s+va\\w+"
+    - "pvd"
+    - "pav"
+    - "claudicatio"
+    - "etalagebenen"
+    - "atriumfibrill\\w+"
+    - "hartfalen"
+    - "angina"
+    - "plotse(?:linge)?\\s+(?:hart)?dood"
+    - "arteriele\\s+trombose"
+    - "bypass"
+    - "cabg"
+    - "ptca"
+    - "pci"
+    - "stent"
+    - "hartklep"
+    - "hartritmestoornis"
+    - "dotteren"
+  family_cvd:
+    - "(?:familiair|belaste|positieve)\\s+(?:anamnese|voorgeschiedenis)\\s+(?:voor|van)\\s+(?:hart|vaat|cardiovascula\\w+)"
+    - "familiaire\\s+belast\\w+\\s+(?:voor|van)\\s+(?:hart|vaat|cardiovascula\\w+)"
+    - "fam\\w*\\s+belast\\s+(?:met|voor)\\s+(?:hart|vaat|cardiovascula\\w+)"
+    - "fam\\w*\\s+anamnese\\s*:\\s*(?:hart|vaat|cardiovascula\\w+)"
+    - "cardiale\\s+familieanamnese\\s*:\\s*positief"
+    - "cardiovasculaire\\s+belasting\\s+in\\s+(?:de\\s+)?familie"
+    - "hart(?:problemen|ziekten|aandoeningen)\\s+in\\s+de\\s+familie"
+    - "plotse\\s+hartdood\\s+in\\s+de\\s+familie"
+    - "vader/moeder\\s+(?:overleden\\s+aan|gehad)\\s+(?:hartinfarct|beroerte|cva|hartfalen)"
+    - "(?:vader|moeder|broer|zus|opa|oma|ouders?)\\s+(?:overleden|gestorven|bezweken|omgekomen)\\s+(?:aan|door|vanwege|tengevolge\\s+van|als\\s+gevolg\\s+van)\\s+(?:hart\\w*|myocard\\w*|beroerte|CVA|infarct)(?:\\s+op\\s+\\d+-?jarige\\s+leeftijd)?"
+    - "(?:vader|moeder|broer|zus|opa|oma)\\s+(?:overleden|gestorven)\\s+(?:aan|door|vanwege)\\s+(?:hart\\w*|beroerte|CVA)"
+  negative_family_cvd:
+    - "geen\\s+(?:hart|vaat|cardiovascula\\w+)(?:ziekten|aandoeningen)\\s+in\\s+(?:de\\s+)?familie"
+    - "familie(?:anamnese|belasting)\\s+(?:voor|van)\\s+(?:hart|vaat|cardiovascula\\w+)(?:ziekten|aandoeningen)\\s*:\\s*negatief"
+    - "familie(?:anamnese|belasting)\\s+(?:voor|van)\\s+(?:hart|vaat|cardiovascula\\w+)(?:ziekten|aandoeningen)\\s*:\\s*onbelast"
+    - "onbelaste\\s+familie(?:anamnese|voorgeschiedenis)\\s+(?:voor|van)\\s+(?:hart|vaat|cardiovascula\\w+)"
+    - "cardiale\\s+familieanamnese\\s*:\\s*negatief"
+    - "familie\\s+niet\\s+belast\\s+(?:voor|met)\\s+(?:hart|vaat|cardiovascula\\w+)"
+  family_anamnesis:
+    - "familie\\s*(?:anamnese|voorgeschiedenis)"
+    - "fam\\w*\\s*VG"
+    - "familiair\\s+belast"
+    - "familiebelasting"
+
+# Atriumfibrilleren/hartritmestoornissen
+ATRIAL_FIBRILLATION_PATTERNS:
+  arrhythmia:
+    # Atriumfibrilleren
+    - "atriumfibriller\\w+"
+    - "atrium\\s*fibriller\\w+"
+    - "atriaal\\s*fibriller\\w+"
+    - "boezemfibriller\\w+"
+    - "boezemfibrill\\w+"
+    - "hartritmestoornis(?:sen)?"
+    - "hartritme\\s*stoornis(?:sen)?"
+    - "ritme\\s*stoornis(?:sen)?"
+    - "ritmestoornis(?:sen)?"
+    - "paroxysmaal\\s*boezemfibrilleren"
+    - "paroxysmaal\\s*atriumfibrilleren"
+    - "intermitterend\\s*(?:boezemfibrilleren|atriumfibrilleren)"
+    - "PAFIB"
+    - "PAF"
+    - "(permanente?|persisterend)\\s*(?:boezemfibrilleren|atriumfibrilleren)"
+    - "boezemflutter"
+    - "atriumflutter"
+    - "atriale\\s*flutter"
+    - "AF\\b"  # Atrial Fibrillation (maar pas op voor false positives)
+    # Andere hartritmestoornissen
+    - "ventrikelfibriller\\w+"
+    - "kamerfibrill\\w+"
+    - "ventrikelflutter"
+    - "kamerflutter"
+    - "ventriculaire\\s*tachycard\\w+"
+    - "VT\\b"  # Ventricular Tachycardia
+    - "ventrikeltachycard\\w+"
+    - "kamertachycard\\w+"
+    - "supraventriculaire\\s*tachycard\\w+"
+    - "SVT\\b"  # Supraventricular Tachycardia
+    - "AV-blok"
+    - "AV\\s*blok"
+    - "atrioventriculair\\s*blok"
+    - "bundeltakblok"
+    - "linker\\s*bundeltakblok"
+    - "LBTB"
+    - "rechter\\s*bundeltakblok"
+    - "RBTB"
+    - "sick\\s*sinus\\s*(?:syndroom|syndrome)"
+    - "SSS\\b"  # Sick Sinus Syndrome
+    - "bradycard\\w+"
+    - "tachycard\\w+"
+    - "extrasystol\\w+"
+    - "PVC"  # Premature Ventricular Contraction
+    - "PAC"  # Premature Atrial Contraction
+    - "premature\\s*(?:ventriculaire|atriale)\\s*contracties"
+    - "vroege\\s*(?:kamer|boezem)slag(?:en)?"
+    - "ectopische\\s*(?:kamer|boezem)slag(?:en)?"
+    - "ectopisch\\s*ritme"
+    - "AV-nodale\\s*re-entry\\s*tachycardie"
+    - "AVNRT"
+    - "WPW"  # Wolff-Parkinson-White syndrome
+    - "Wolff-Parkinson-White"
+    - "Lown-Ganong-Levine"
+    - "LGL"
+    - "aritmie"
+    - "ectopie"
+    - "irregular\\s*(?:pulse|hartslag|ritme)"
+    - "onregelmatige\\s*(?:pols|hartslag|ritme)"
+  arrhythmia_meds:
+    # Antiaritmica
+    - "amiodaron"
+    - "cordarone"
+    - "disopyramide"
+    - "flecaïnide"
+    - "flecainide"
+    - "propafenon"
+    - "ritmonorm"
+    - "sotalol"
+    - "sotacor"
+    - "kinidine"
+    - "chinidinefenylethylbarbituraat"
+    - "kinidinesulfaat"
+    - "procaïnamide"
+    - "procainamide"
+    - "dofetilide"
+    - "ibutilide"
+    - "dronedarone"
+    - "multaq"
+    - "adenosine"
+    - "adenocor"
+    - "digoxine"
+    - "lanoxin"
+    - "dabigatran"
+    - "pradaxa"
+    - "rivaroxaban"
+    - "xarelto"
+    - "apixaban"
+    - "eliquis"
+    - "edoxaban"
+    - "lixiana"
+    - "fenprocoumon"
+    - "marcoumar"
+    - "acenocoumarol"
+    - "sintrom"
+  ecg_arrhythmia:
+    - "ECG\\s*(?:toont|laat zien|passend bij)\\s*(?:atriumfibrilleren|boezemfibrilleren)"
+    - "ECG\\s*(?:met|vertoont)\\s*(?:atriumfibrilleren|boezemfibrilleren)"
+    - "ECG\\s*(?:toont|laat zien|passend bij)\\s*(?:onregelmatig|irregulier)\\s*ritme"
+    - "ECG\\s*:\\s*(?:atriumfibrilleren|boezemfibrilleren|AF|hartritmestoornis)"
+  non_arrhythmia:
+    - "geen\\s+(?:atriumfibrilleren|boezemfibrilleren|aritmie|hartritmestoornis)"
+    - "geen\\s+ritme\\s*stoornis(?:sen)?"
+    - "normaal\\s+hartritme"
+    - "hartritme\\s*normaal"
+    - "regelmatige\\s*(?:pols|hartslag|ritme)"
+    - "sinusritme"
+    - "\\bSR\\b"  # Sinusritme
+  rhythm_terms:
+    - "hartritme"
+    - "hartslagfrequentie"
+    - "ECG"
+    - "elektrocardiogram"
+    - "ritme"
+    - "hartslag"
+    - "pols"

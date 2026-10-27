@@ -1,0 +1,111 @@
+# General parameters
+
+# Column configurations
+versions:
+  # Original ARGUS model
+  v1_ARGUS24:
+    columns:
+      gender: "gender"
+      study_id: "studyId_0771"
+      index_date: "CT_Date"
+      age: "Age"
+
+    data_sources:
+      folder: "ARGUS24"
+      subfolder: "20240908"
+      patsel_file: "patsel_20240314.sas7bdat"
+      decursus_file: "decursus_20240314.parquet"
+      
+  # ARGUS2 - development and inference    
+  v2_ARGUS25:
+    modes:
+      # Training mode configuration
+      train:
+        columns:
+          gender: "gender"
+          study_id: "studyId_0888"
+          index_date: "index_dt"
+          age: "Age"
+
+        data_sources:
+          folder: "ARGUS25"
+          subfolder: "20250908"
+          patsel_file: "patsel_20250414.sas7bdat"
+          decursus_file: "consult_20250414.sas7bdat"
+          lab_file: "lab_20250414.sas7bdat"
+          ecg_file1: "ecg_classresult_20250527.sas7bdat"
+          ecg_file2: "ecg_detail_20250527.sas7bdat"
+          body_file: "meting_20250609.sas7bdat"
+          BP_file: "meting_bp_20250611.sas7bdat"
+
+        models:
+          model_f_filename: "argus_calibrated_xgb_model_f.pkl" 
+          model_m_filename: "argus_calibrated_xgb_model_m.pkl"
+
+
+      # Inference mode configuration
+      inference:
+        # Inference-specific column names (from database)
+        columns:
+          gender: "gender"
+          study_id: "patientPseuID"
+          index_date: "Index_dt"
+          age: "Age"
+
+        database:
+          host: "dataplatform-daily"
+          database: "SELF_SERVICE"
+          schema: "argus" 
+
+        #TODO - change to location in Posit? 
+        models:
+          model_f_filename: "argus_calibrated_xgb_model_f.pkl" 
+          model_m_filename: "argus_calibrated_xgb_model_m.pkl"
+
+
+        # Columns to select from database tables
+        patsel_columns:
+          - "patientPseuID"
+          - "gender"
+          - "Age"
+          - "Index_dt"
+        
+        decursus_columns:
+          - "id"
+          - "section_text"
+          - "section_title_display_original"
+
+        lab_columns:
+          - "patientPseuID"
+          - "code_code_original"
+          - "code_display_original"
+          - "code2_display_original"
+          - "valueQuantity_value"  # corrigeren met value comparitor
+          - "valueQuantity_code_original" 
+          - "afname_dt"
+          - "valueString" #comparitor > of < samen met value, nan indien geen com
+
+        BP_columns:
+          - "patientPseuID"
+          - "index_dt"
+          - "effectiveDateTime"
+          - "DiastolicBP"
+          - "SystolicBP"
+          - "MeanBP"
+
+# Value mappings
+mappings:
+  gender:
+    male: 0
+    female: 1
+
+# Logging configurations
+logging:
+  etl_patsel:
+    name: "ETL_patsel_log"
+    file: "ETL_patsel.log"
+    enabled: true
+
+
+  
+    

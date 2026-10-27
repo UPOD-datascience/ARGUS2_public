@@ -1,0 +1,114 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ARGUS"
+version = "1.0.0"
+description = "ARGUS project for shadow mode implementation at UMCU"
+authors = [
+    {name = "F.L.Spijkerboer", email = "f.l.spijkerboer@umcutrecht.nl"},
+    {name = "bes3", email = "bes3@umcutrecht.nl"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "ipykernel>=6.29.5",
+    "matplotlib>=3.10.1",
+    "pandas>=2.2.3",
+    "pyarrow>=20.0.0",
+    "pyreadstat>=1.2.8",
+    "joblib>=1.5.1",
+    "pyyaml>=6.0.2",
+    "seaborn>=0.13.2",
+    "clinlp[transformers]>=0.9.4",
+    "python-dotenv>=1.1.0",
+    "fsspec>=2025.5.1",
+    "jupyter>=1.1.1",
+    "ipywidgets>=8.1.7",
+    "scipy>=1.15.3",
+    "dvc>=3.60.1",
+    "scikit-learn>=1.7.0",
+    "xgboost>=3.0.2",
+    "shap>=0.48.0",
+    "plotly>=6.2.0",
+    "pydantic>=2.11.7",
+    "sqlalchemy>=2.0.43",
+    "pymssql>=2.3.7",
+    "fastapi>=0.120.1",
+    "rsconnect-python>=1.25.2",
+    "uvicorn>=0.38.0",
+    "pyodbc (==5.1.0)",
+    "missingno>=0.5.2",
+    "statsmodels>=0.14.6",
+    "sdv>=1.38.3",
+    "graphviz>=0.21",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=6.29.2",
+    "pytest>=8.0.1",
+    "nbstripout>=0.7.1",
+    "pytest-cov>=5.0.0",
+    "rsconnect-python>=1.24.0",
+]
+lint = [
+    "ruff>=0.7.1",
+]
+
+[tool.uv]
+default-groups = ["dev", "lint"]
+
+[tool.ruff]
+src = ["src"]
+line-length = 120
+exclude = ["label", "text_cleaner.py"]
+
+[tool.ruff.lint]
+select = [
+    "B",  # flake8-bugbear
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "C90",  # mccabe complexity
+    "I",  # isort
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.poetry]
+name = "ARGUS"
+version = "0.0.1"
+description = "ARGUS project for shadow mode implementation at UMCU"
+authors = [
+    "F.L.Spijkerboer <f.l.spijkerboer@umcutrecht.nl>",
+    "bes3 <bes3@umcutrecht.nl>"
+]
+readme = "README.md"
+packages = [{include = "argus", from = "src"}]
+
+[tool.poetry.dependencies]
+python = ">=3.11, <4.0"
+ipykernel = "6.29.5"
+matplotlib = "^3.10.3"
+pyarrow = "^20.0.0"
+pandas = "^2.3.0"
+pyreadstat = "^1.2.9"
+joblib = "^1.5.1"
+pyyaml = "^6.0.2"
+seaborn = "^0.13.2"
+clinlp = {extras = ["transformers"], version = "^0.9.4"}
+python-dotenv = "^1.1.1"
+fsspec = "2025.5.1"
+jupyter = "^1.1.1"
+ipywidgets = "^8.1.7"
+python-benedict = "^0.34.1"
+scikit-learn = "^1.7.0"
+nltk = "^3.9.1"
